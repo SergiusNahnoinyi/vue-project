@@ -1,14 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <ButtonDefault>Click me</ButtonDefault>
 </template>
 
 <script>
+import ButtonDefault from "./components/Button";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-  }
-}
+    ButtonDefault,
+  },
+};
 </script>
 
 <style>
