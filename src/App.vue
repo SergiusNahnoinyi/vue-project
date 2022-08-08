@@ -1,15 +1,18 @@
 <template>
   <h1>{{ title }}</h1>
-  <ButtonDefault @click="increment">Click me</ButtonDefault>
+  <ButtonDefault @click="increment" outlined>Click me</ButtonDefault>
+  <StarRating :rating="4.6" />
 </template>
 
 <script>
 import ButtonDefault from "./components/Button";
+import StarRating from "./components/StarRating";
 
 export default {
   name: "App",
   components: {
     ButtonDefault,
+    StarRating,
   },
   data() {
     return {
