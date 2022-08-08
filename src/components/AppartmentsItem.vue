@@ -1,15 +1,15 @@
 <template>
-  <div class="apartments-item">
-    <div class="apartments-item__inner">
-      <img :src="imgSrc" alt="" class="apartments-item__photo" />
-      <div class="apartments-item__content">
-        <p class="apartments-item__description">
+  <div class="appartments-item">
+    <div class="appartments-item__inner">
+      <img :src="imgSrc" alt="" class="appartments-item__photo" />
+      <div class="appartments-item__content">
+        <p class="appartments-item__description">
           {{ descr }}
         </p>
-        <div class="apartments-item__rating">
+        <div class="appartments-item__rating">
           <StarRating :rating="rating" />
         </div>
-        <div class="apartments-item__price">UAH {{ price }}</div>
+        <div class="appartments-item__price">UAH {{ price }}</div>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
 <script>
 import StarRating from "./StarRating";
 export default {
-  name: "ApartmentsItem",
+  name: "AppartmentsItem",
   components: {
     StarRating,
   },
@@ -44,10 +44,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.apartments-item {
+.appartments-item {
   position: relative;
   max-width: 350px;
-  padding: 0 20px;
+  padding: 0 15px;
   &__inner {
     position: relative;
   }
@@ -69,6 +69,8 @@ export default {
   }
   &__description {
     margin-bottom: 20px;
+    max-height: calc(1em * 1.4 * 3);
+    overflow: hidden;
   }
   &__rating {
     margin-bottom: 20px;

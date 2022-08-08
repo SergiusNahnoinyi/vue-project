@@ -2,29 +2,26 @@
   <h1>{{ title }}</h1>
   <ButtonDefault @click="increment" outlined>Click me</ButtonDefault>
   <StarRating :rating="4.6" />
-  <AppartmentsItem
-    :descr="appartment.descr"
-    :price="appartment.price"
-    :rating="appartment.rating"
-    imgSrc="https://cdn-7.nikon-cdn.com/Images/Learn-Explore/Photography-Techniques/2019/CA-Chris-Ogonek-Picture-Controls/Media/Chris-Ogonek-Picture-Controls-Vivid.jpg"
-  />
+  <AppartmentsList :items="appartments" />
 </template>
 
 <script>
 import ButtonDefault from "./components/Button";
 import StarRating from "./components/StarRating";
-import AppartmentsItem from "./components/AppartmentsItem";
+import AppartmentsList from "./components/AppartmentsList";
+import appartments from "./components/appartments.js";
 
 export default {
   name: "App",
   components: {
     ButtonDefault,
     StarRating,
-    AppartmentsItem,
+    AppartmentsList,
   },
   data() {
     return {
       amountOfClicks: 0,
+      appartments,
       appartment: {
         id: "5f05c9dad2c9bc0f773444bc",
         title:
