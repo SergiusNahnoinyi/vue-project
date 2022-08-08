@@ -2,7 +2,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f47b",
     title: "Delectus et iste.",
-    imgUrl: "../assets/appartment-1.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-1.jpg",
     descr:
       "Debitis similique unde et eligendi sapiente in iure blanditiis distinctio. Cum nihil temporibus qui quam aut. Nesciunt qui eveniet eum quam voluptate numquam.",
     rating: 3,
@@ -19,7 +20,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f47d",
     title: "Eaque suscipit incidunt.",
-    imgUrl: "../assets/appartment-2.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-2.jpg",
     descr:
       "Hic dolorem ab est hic iusto sed fugiat id aut. Eum reprehenderit eius odit perspiciatis illo. Odit repellat praesentium. Ea consequatur vero sed pariatur dolores omnis. Sed omnis vel atque sapiente natus voluptas dolores. Magnam enim consequuntur iure cupiditate voluptatem rerum.",
     rating: 3,
@@ -36,7 +38,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f48a",
     title: "Doloremque labore ullam molestiae quis quis eos consequatur.",
-    imgUrl: "../assets/appartment-3.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-3.jpg",
     descr:
       "Quia cum sed qui. Tempore ab tenetur aut et itaque omnis exercitationem consequatur eum. Hic non ad atque magni error earum aspernatur. Dolores ipsa veniam.",
     rating: 1,
@@ -53,7 +56,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f481",
     title: "Dolor at inventore et voluptas omnis unde.",
-    imgUrl: "../assets/appartment-4.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-4.jpg",
     descr:
       "Nihil dolorem in qui et occaecati. Sit qui deleniti. Expedita doloremque fugit culpa sit vel labore.",
     rating: 3,
@@ -70,7 +74,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f47c",
     title: "Sapiente sit consequuntur odit reprehenderit earum maxime.",
-    imgUrl: "../assets/appartment-5.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-5.jpg",
     descr:
       "Voluptatem sed dolor. Voluptatem eos minus nostrum quis facilis voluptas fugiat. Vel voluptas molestiae nesciunt.",
     rating: 2,
@@ -87,7 +92,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f47f",
     title: "Ut accusantium atque at aut aliquid distinctio corporis.",
-    imgUrl: "../assets/appartment-6.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-6.jpg",
     descr:
       "Odit repudiandae autem hic eos. Fuga omnis laboriosam similique rerum. Delectus exercitationem a quod. Sunt nobis omnis expedita veniam sit minus eos culpa. Aliquid mollitia deserunt sed mollitia.",
     rating: 2,
@@ -105,7 +111,8 @@ export default [
     id: "5f689a2c09b16000e9a2f48c",
     title:
       "Sit similique cumque dolorem ut voluptatibus velit et dicta architecto.",
-    imgUrl: "../assets/appartment-7.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-7.jpg",
     descr:
       "Soluta quo et rerum vel. Qui earum inventore. Dolores vero facilis ut mollitia nisi iusto a quis. Nesciunt asperiores dolorum magni qui. Omnis autem nulla cupiditate et rerum et iusto rem.",
     rating: 0,
@@ -122,7 +129,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f485",
     title: "Nihil pariatur eum ab a ducimus nam.",
-    imgUrl: "../assets/appartment-8.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-8.jpg",
     descr:
       "Quae aliquid odit aut quia. Sed aut sed quis repudiandae est consequatur id quo ut. Molestiae nemo maiores quis deleniti sequi et eaque architecto officia. Molestiae incidunt qui quia. Fugiat id eum totam porro autem.",
     rating: 1,
@@ -139,7 +147,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f48b",
     title: "Adipisci voluptates accusamus officia aut id et ut hic.",
-    imgUrl: "../assets/appartment-9.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-9.jpg",
     descr:
       "Rerum sed voluptas vero ut rerum at ad. Aliquam unde quia earum perspiciatis reiciendis maxime voluptatem. Officiis et est velit placeat adipisci dolores.",
     rating: 0,
@@ -156,7 +165,8 @@ export default [
   {
     id: "5f689a2c09b16000e9a2f47e",
     title: "Rerum ut consequatur et adipisci.",
-    imgUrl: "../assets/appartment-10.jpg",
+    imgUrl:
+      "https://raw.githubusercontent.com/SergiusNahnoinyi/vue-project/main/src/assets/appartment-10.jpg",
     descr:
       "Laboriosam ut nam molestiae. Minus est doloremque et aperiam sunt et. Rem earum illum. Dolor consequatur fugiat.",
     rating: 4,
