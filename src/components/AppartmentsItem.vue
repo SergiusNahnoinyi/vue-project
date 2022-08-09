@@ -46,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .appartments-item {
   position: relative;
-  max-width: 350px;
+  max-width: 33.333%;
   padding: 0 15px;
   margin-bottom: 30px;
   &__inner {

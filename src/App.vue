@@ -1,47 +1,51 @@
 <template>
-  <h2>{{ text }}</h2>
-  <div class="actions">
-    <CustomSelect :items="['name', 'label', 'salary']" />
-    <CustomInput v-model="text" />
+  <div id="app">
+    <Container>
+      <AppartmentsForm class="appartments-form" @submit="logger" />
+    </Container>
+    <AppartmentsList :items="appartments">
+      <template v-slot:appartment="{ appartment }">
+        <AppartmentsItem
+          :key="appartment.id"
+          :descr="appartment.descr"
+          :rating="appartment.rating"
+          :imgSrc="appartment.imgUrl"
+          :price="appartment.price"
+        />
+      </template>
+    </AppartmentsList>
   </div>
-  <AppartmentsList :items="appartments">
-    <template v-slot:appartment="{ appartment }">
-      <AppartmentsItem
-        :key="appartment.id"
-        :descr="appartment.descr"
-        :rating="appartment.rating"
-        :imgSrc="appartment.imgUrl"
-        :price="appartment.price"
-      />
-    </template>
-  </AppartmentsList>
 </template>
 
 <script>
+import Container from "./components/Container";
+import AppartmentsForm from "./components/AppartmentsForm";
+import appartments from "./components/appartments.js";
 import AppartmentsList from "./components/AppartmentsList";
 import AppartmentsItem from "./components/AppartmentsItem";
-import CustomInput from "./components/CustomInput";
-import CustomSelect from "./components/CustomSelect";
-import appartments from "./components/appartments.js";
 
 export default {
   name: "App",
   components: {
+    Container,
+    AppartmentsForm,
     AppartmentsList,
     AppartmentsItem,
-    CustomInput,
-    CustomSelect,
   },
   data() {
     return {
-      text: "",
       appartments,
     };
+  },
+  methods: {
+    logger(value) {
+      console.log(value, "---form value");
+    },
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +54,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.actions {
-  display: flex;
+.appartments-form {
+  margin-bottom: 40px;
 }
 </style>
