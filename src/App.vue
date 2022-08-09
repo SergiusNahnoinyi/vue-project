@@ -1,4 +1,9 @@
 <template>
+  <h2>{{ text }}</h2>
+  <div class="actions">
+    <CustomSelect :items="['name', 'label', 'salary']" />
+    <CustomInput v-model="text" />
+  </div>
   <AppartmentsList :items="appartments">
     <template v-slot:appartment="{ appartment }">
       <AppartmentsItem
@@ -15,6 +20,8 @@
 <script>
 import AppartmentsList from "./components/AppartmentsList";
 import AppartmentsItem from "./components/AppartmentsItem";
+import CustomInput from "./components/CustomInput";
+import CustomSelect from "./components/CustomSelect";
 import appartments from "./components/appartments.js";
 
 export default {
@@ -22,9 +29,12 @@ export default {
   components: {
     AppartmentsList,
     AppartmentsItem,
+    CustomInput,
+    CustomSelect,
   },
   data() {
     return {
+      text: "",
       appartments,
     };
   },
@@ -39,5 +49,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.actions {
+  display: flex;
 }
 </style>
