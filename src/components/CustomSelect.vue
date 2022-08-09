@@ -1,5 +1,5 @@
 <template>
-  <select class="custom-select">
+  <select class="custom-select" :value="city" @input="handleSelect">
     <option
       v-for="item in formatedItems"
       :key="item.value"
@@ -19,17 +19,22 @@ export default {
       type: Array,
       required: true,
     },
+    city: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
-    listeners() {
-      return {
-        input: (event) => this.$emit("input", event.target.value),
-      };
-    },
     formatedItems() {
       return this.items.map((item) => {
         return typeof item === "object" ? item : { value: item, label: item };
       });
+    },
+  },
+  emits: ["update:city"],
+  methods: {
+    handleSelect(event) {
+      this.$emit("update:city", event.target.value);
     },
   },
 };

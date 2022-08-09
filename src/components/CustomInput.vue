@@ -1,15 +1,30 @@
 <template>
-  <input class="custom-input" />
+  <input
+    class="custom-input"
+    :value="price"
+    @input="handleInput"
+    v-bind="$attrs"
+  />
 </template>
 
 <script>
 export default {
   name: "CustomInput",
-  computed: {
-    listeners() {
-      return {
-        input: (event) => this.$emit("input", event.target.value),
-      };
+  inheritAttrs: false,
+  props: {
+    price: {
+      type: String,
+      required: true,
+    },
+    rules: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  emits: ["update:price"],
+  methods: {
+    handleInput(event) {
+      this.$emit("update:price", event.target.value);
     },
   },
 };

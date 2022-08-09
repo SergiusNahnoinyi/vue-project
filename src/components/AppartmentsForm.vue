@@ -1,7 +1,7 @@
 <template>
   <form class="form" @submit.prevent="handleSubmit">
-    <CustomSelect :items="cities" v-model="city" class="form__select" />
-    <CustomInput v-model="price" placeholder="Price from" />
+    <CustomSelect :items="cities" v-model:city="city" class="form__select" />
+    <CustomInput type="number" v-model:price="price" placeholder="Price from" />
     <SubmitButton class="form__submit" type="submit">Submit</SubmitButton>
   </form>
 </template>
@@ -37,6 +37,7 @@ export default {
       ];
     },
   },
+  emits: ["submit"],
   methods: {
     handleSubmit() {
       this.$emit("submit", {
