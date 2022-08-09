@@ -1,21 +1,15 @@
 <template>
-  <Container>
     <slot name="title"></slot>
     <div class="appartments-list">
       <template v-for="appartment in items">
         <slot name="appartment" v-bind:appartment="appartment"></slot>
       </template>
     </div>
-  </Container>
 </template>
 
 <script>
-import Container from "./Container";
 export default {
   name: "AppartmentsList",
-  components: {
-    Container,
-  },
   props: {
     items: {
       type: Array,

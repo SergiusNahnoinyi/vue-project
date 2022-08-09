@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Container>
+    <Header />
+    <Container class="main">
       <AppartmentsForm class="appartments-form" @submit="filter" />
-    </Container>
-    <p v-if="!filteredAppartments.length">Nothing found</p>
-    <AppartmentsList v-else :items="filteredAppartments">
+      <p v-if="!filteredAppartments.length">Nothing found</p>
+      <AppartmentsList v-else :items="filteredAppartments">
       <template v-slot:appartment="{ appartment }">
         <AppartmentsItem
           :key="appartment.id"
@@ -14,24 +14,31 @@
           :price="appartment.price"
         />
       </template>
-    </AppartmentsList>
+      </AppartmentsList>
+    </Container>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
 import Container from "./components/Container";
 import AppartmentsForm from "./components/AppartmentsForm";
-import appartments from "./components/appartments.js";
 import AppartmentsList from "./components/AppartmentsList";
 import AppartmentsItem from "./components/AppartmentsItem";
+import Footer from './components/Footer'
+
+import appartments from "./components/appartments.js";
 
 export default {
   name: "App",
   components: {
+    Header,
     Container,
     AppartmentsForm,
     AppartmentsList,
     AppartmentsItem,
+    Footer,
   },
   data() {
     return {
@@ -74,10 +81,13 @@ export default {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+.main {
+  flex-grow: 1;
+  padding-top: 60px;
+}
+
 .appartments-form {
   margin-bottom: 40px;
 }
