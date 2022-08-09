@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <Container>
-      <AppartmentsForm class="appartments-form" @submit="logger" />
+      <AppartmentsForm class="appartments-form" @submit="filter" />
     </Container>
-    <AppartmentsList :items="appartments">
+    <p v-if="!filteredAppartments.length">Nothing found</p>
+    <AppartmentsList v-else :items="filteredAppartments">
       <template v-slot:appartment="{ appartment }">
         <AppartmentsItem
           :key="appartment.id"
@@ -35,11 +36,34 @@ export default {
   data() {
     return {
       appartments,
+      filters: {
+        city: "",
+        price: 0,
+      },
     };
   },
+  computed: {
+    filteredAppartments() {
+      return this.filterByCityName(this.filterByPrice(this.appartments));
+    },
+  },
   methods: {
-    logger(value) {
-      console.log(value, "---form value");
+    filter({ city, price }) {
+      this.filters.city = city;
+      this.filters.price = price;
+    },
+    filterByCityName(appartments) {
+      if (!this.filters.city) return appartments;
+
+      return appartments.filter((appartment) => {
+        return appartment.location.city === this.filters.city;
+      });
+    },
+    filterByPrice(appartments) {
+      if (!this.filters.price) return appartments;
+      return appartments.filter((appartment) => {
+        return appartment.price >= this.filters.price;
+      });
     },
   },
 };
