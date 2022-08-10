@@ -16,7 +16,7 @@ const routes = [
     name: "AppartmentsPage",
   },
   {
-    path: "/404",
+    path: "/:catchAll(.*)",
     component: ErrorPage,
     name: "ErrorPage",
   },
