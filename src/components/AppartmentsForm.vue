@@ -1,8 +1,8 @@
 <template>
   <form class="form" @submit.prevent="handleSubmit">
     <CustomSelect :items="cities" v-model:city="city" class="form__select" />
-    <CustomInput type="number" v-model:price="price" placeholder="Price from" />
-    <SubmitButton class="form__submit" type="submit">Submit</SubmitButton>
+    <CustomInput type="number" v-model:price="price" placeholder="Price from" class="form__input"/>
+    <SubmitButton type="submit" class="form__submit">Submit</SubmitButton>
   </form>
 </template>
 
@@ -52,11 +52,30 @@ export default {
 <style lang="scss" scoped>
 .form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
   &__select {
-    margin-right: 30px;
+    margin: 0 0 30px 0;
+  }
+  &__input {
+    margin: 0 0 30px 0;
   }
   &__submit {
-    margin-left: auto;
+  margin-left: 0;
+  }
+
+  @media (min-width: 660px) {  
+    flex-direction: row;
+    &__select {
+      margin: 0 30px 0 0;
+    }
+    &__input {
+      margin: 0 30px 0 0;
+    }
+    &__submit {
+      margin-left: auto;
+    }
   }
 }
 </style>

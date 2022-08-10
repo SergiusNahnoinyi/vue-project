@@ -1,23 +1,23 @@
 <template>
-  <div id="app">
     <Header />
-    <Container class="main">
-      <AppartmentsForm class="appartments-form" @submit="filter" />
-      <p v-if="!filteredAppartments.length">Nothing found</p>
-      <AppartmentsList v-else :items="filteredAppartments">
-      <template v-slot:appartment="{ appartment }">
-        <AppartmentsItem
-          :key="appartment.id"
-          :descr="appartment.descr"
-          :rating="appartment.rating"
-          :imgSrc="appartment.imgUrl"
-          :price="appartment.price"
-        />
-      </template>
-      </AppartmentsList>
-    </Container>
+    <main class="main">
+      <Container>
+        <AppartmentsForm @submit="filter" />
+        <p v-if="!filteredAppartments.length">Nothing found</p>
+        <AppartmentsList v-else :items="filteredAppartments">
+        <template v-slot:appartment="{ appartment }">
+          <AppartmentsItem
+            :key="appartment.id"
+            :descr="appartment.descr"
+            :rating="appartment.rating"
+            :imgSrc="appartment.imgUrl"
+            :price="appartment.price"
+          />
+        </template>
+        </AppartmentsList>
+      </Container>
+    </main>
     <Footer />
-  </div>
 </template>
 
 <script>
@@ -77,18 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#app {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .main {
-  flex-grow: 1;
-  padding-top: 60px;
-}
-
-.appartments-form {
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 </style>

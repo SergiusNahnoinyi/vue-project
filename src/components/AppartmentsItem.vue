@@ -46,9 +46,6 @@ export default {
 <style lang="scss" scoped>
 .appartments-item {
   position: relative;
-  max-width: 33.333%;
-  padding: 0 15px;
-  margin-bottom: 30px;
   &__inner {
     position: relative;
   }
@@ -58,7 +55,7 @@ export default {
     opacity: 0;
     transition: opacity 0.4s;
     background: rgba(#0f1d2d, 0.7);
-    min-height: 200px;
+    aspect-ratio: 1/0.75;
     color: #fff;
     text-align: left;
     line-height: 1.4;

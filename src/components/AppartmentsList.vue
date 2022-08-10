@@ -21,9 +21,10 @@ export default {
 
 <style lang="scss" scoped>
 .appartments-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -15px;
-  margin-right: -15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

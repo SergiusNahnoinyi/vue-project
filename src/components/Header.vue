@@ -22,6 +22,7 @@ export default {
 @import '../scss/variables.scss';
 .header {
   width: 100%;
+  margin-bottom: 60px;
   background: $secondary-color;
   padding: 16px 0;
 }
