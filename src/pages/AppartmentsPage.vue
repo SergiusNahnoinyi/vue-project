@@ -50,9 +50,6 @@ export default {
     flex-wrap: wrap;
     justify-content: center; 
   }
-  // @media (min-width: 768px) {
-  //   flex-direction: row; 
-  // }
   &__reviews {
     display: flex;
     flex-direction: column;
