@@ -1,11 +1,13 @@
 <template>
-  <Container>
+  <Container class="appartments-page">
     <AppartmentsInfo :appartment="appartment" />
-    <AppartmentsOwner
-      :owner="appartment.owner"
-      class="appartments-page__owner"
-    />
-    <ReviewsList :reviews="reviews" />
+    <div class="appartments-page__reviews">
+      <AppartmentsOwner
+        :owner="appartment.owner"
+        class="appartments-page__owner"
+      />
+      <ReviewsList :reviews="reviews" />
+    </div>
   </Container>
 </template>
 
@@ -43,10 +45,22 @@ export default {
 
 <style lang='scss' scoped>
 .appartments-page {
-  padding-bottom: 55px;
-  &__content {
+  display: flex;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    justify-content: center; 
+  }
+  // @media (min-width: 768px) {
+  //   flex-direction: row; 
+  // }
+  &__reviews {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    
+    margin-top: 44px;
+      @media (max-width: 767px) {
+    width: 100%;
+  }
   }
   &__owner {
     margin-bottom: 20px;

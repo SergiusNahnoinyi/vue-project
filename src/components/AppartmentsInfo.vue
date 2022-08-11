@@ -32,7 +32,13 @@ export default {
 
 <style lang='scss' scoped>
 .appartments-info {
-  max-width: 730px;
+  // @media (max-width: 767px) {
+  //   max-width: 728px;
+  // }
+  @media (min-width: 768px) {
+    max-width: fit-content;
+    margin-right: 20px;
+  }
   &__heading {
     display: flex;
     align-items: baseline;
