@@ -1,9 +1,9 @@
 <template>
   <section class="reviews">
     <div class="reviews__heading">
-      <h2 class="reviews__title">Суммарный рейтинг</h2>
+      <h2 class="reviews__title">Overall rating</h2>
       <div class="reviews__rating">
-        <span>{{ reviewsCount }} отзыв(ов)</span>
+        <span>{{ reviewsCount }} review(s)</span>
         <StarRating :rating="totalRating" />
       </div>
     </div>
@@ -54,8 +54,8 @@ export default {
     },
     buttonText() {
       return this.reviews.length === this.reviewsLimit
-        ? 'Свернуть'
-        : 'Читать еще...';
+        ? 'Collapse'
+        : 'Read more...';
     },
   },
   methods: {
