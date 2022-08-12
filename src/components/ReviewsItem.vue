@@ -1,14 +1,15 @@
 <template>
   <section class="reviews-item">
     <ReviewsHeading :rating="review.rating" :author="review.author" />
-    <p class="reviews-item__comment">{{ review.comment }}</p>
+    <p class="reviews-item__comment">{{ review.content }}</p>
   </section>
 </template>
 
 <script>
-import ReviewsHeading from './ReviewsHeading.vue';
+import ReviewsHeading from "./ReviewsHeading.vue";
+
 export default {
-  name: 'ReviewsItem',
+  name: "ReviewsItem",
   components: {
     ReviewsHeading,
   },

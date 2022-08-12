@@ -1,46 +1,52 @@
 <template>
-  <Container class="appartments-page">
+  <Container v-if="appartment" class="appartments-page">
     <AppartmentsInfo :appartment="appartment" />
     <div class="appartments-page__reviews">
       <AppartmentsOwner
         :owner="appartment.owner"
         class="appartments-page__owner"
       />
-      <ReviewsList :reviews="reviews" />
+      <ReviewsList :reviews="reviews" :appartment="appartment" />
     </div>
   </Container>
 </template>
 
 <script>
-import Container from '../components/Container.vue';
-import AppartmentsInfo from '../components/AppartmentsInfo.vue';
-import AppartmentsOwner from '../components/AppartmentsOwner.vue';
-import ReviewsList from '../components/ReviewsList.vue';
+import { getAppartmentById } from "../services/appartmentsService";
 
-import appartments from "../components/appartments.js";
-import reviews from "../components/reviews.json";
+import Container from "../components/Container.vue";
+import AppartmentsInfo from "../components/AppartmentsInfo.vue";
+import AppartmentsOwner from "../components/AppartmentsOwner.vue";
+import ReviewsList from "../components/ReviewsList.vue";
 
 export default {
-  name: 'AppartmentsPage',
+  name: "AppartmentsPage",
   components: {
     Container,
     AppartmentsInfo,
     AppartmentsOwner,
     ReviewsList,
   },
+  data() {
+    return {
+      appartment: null,
+    };
+  },
   computed: {
-    appartment() {
-      return appartments.find((appartment) => appartment.id === this.$route.params.id)
-    },
     reviews() {
-      return reviews;
+      return this.appartment.reviews;
     },
   },
-  mounted() {
-    console.log(this.$route.params.id);
-    console.log(this.$route.query.name);
+  async created() {
+    try {
+      const { id } = this.$route.params;
+      const { data } = await getAppartmentById(id);
+      this.appartment = data;
+    } catch (error) {
+      console.error(error);
+    }
   },
-  };
+};
 </script>
 
 <style lang='scss' scoped>
@@ -48,16 +54,15 @@ export default {
   display: flex;
   @media (max-width: 767px) {
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
   }
   &__reviews {
     display: flex;
     flex-direction: column;
-    
     margin-top: 44px;
-      @media (max-width: 767px) {
-    width: 100%;
-  }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   }
   &__owner {
     margin-bottom: 20px;

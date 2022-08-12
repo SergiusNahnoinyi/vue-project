@@ -19,10 +19,11 @@
 </template> 
 
 <script>
-import ReviewsItem from './ReviewsItem.vue';
-import StarRating from './StarRating.vue';
+import ReviewsItem from "./ReviewsItem.vue";
+import StarRating from "./StarRating.vue";
+
 export default {
-  name: 'ReviewsList',
+  name: "ReviewsList",
   components: {
     ReviewsItem,
     StarRating,
@@ -30,6 +31,10 @@ export default {
   props: {
     reviews: {
       type: Array,
+      required: true,
+    },
+    appartment: {
+      type: Object,
       required: true,
     },
   },
@@ -43,19 +48,15 @@ export default {
       return this.reviews.length;
     },
     totalRating() {
-      const total = this.reviews.reduce(
-        (acc, review) => (acc += review.rating),
-        0,
-      );
-      return total / this.reviews.length;
+      return this.appartment.rating;
     },
     currentReviews() {
       return this.reviews.slice(0, this.reviewsLimit);
     },
     buttonText() {
       return this.reviews.length === this.reviewsLimit
-        ? 'Collapse'
-        : 'Read more...';
+        ? "Collapse"
+        : "Read more...";
     },
   },
   methods: {

@@ -3,28 +3,22 @@
     <Avatar class="reviews-heading__avatar" />
     <div class="reviews-heading__content">
       <span class="reviews-heading__author">{{ author }}</span>
-      <StarRating :rating="rating" />
     </div>
   </div>
 </template>
 
 <script>
-import Avatar from './ReviewsAvatar.vue';
-import StarRating from './StarRating.vue';
+import Avatar from "./ReviewsAvatar.vue";
+
 export default {
-  name: 'ReviewsHeading',
+  name: "ReviewsHeading",
   components: {
     Avatar,
-    StarRating,
   },
   props: {
     author: {
       type: String,
       required: true,
-    },
-    rating: {
-      type: Number,
-      default: 0,
     },
   },
 };
