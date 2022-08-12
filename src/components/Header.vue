@@ -1,25 +1,27 @@
 <template>
   <header class="header">
     <Container>
-      <Logo />
+      <router-link to="/">
+        <Logo />
+      </router-link>
     </Container>
   </header>
 </template>
 
 <script>
-import Container from './Container'
-import Logo from './Logo'
+import Container from "./Container";
+import Logo from "./Logo";
 export default {
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   components: {
     Container,
-    Logo
-  }
-}
+    Logo,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/variables.scss';
+@import "../scss/variables.scss";
 .header {
   width: 100%;
   margin-bottom: 60px;
