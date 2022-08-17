@@ -14,7 +14,6 @@
           :to="{
             name: 'AppartmentsPage',
             params: { id },
-            query: { name: title },
           }"
           class="appartments-item__link"
         ></router-link>
@@ -32,10 +31,6 @@ export default {
   },
   props: {
     id: {
-      type: String,
-      required: true,
-    },
-    title: {
       type: String,
       required: true,
     },
