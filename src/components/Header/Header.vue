@@ -9,8 +9,9 @@
 </template>
 
 <script>
-import Container from "./Container";
-import Logo from "./Logo";
+import { Container } from "../Common";
+import { Logo } from "../Common";
+
 export default {
   name: "HeaderComponent",
   components: {
@@ -21,11 +22,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables.scss";
+@import "../../scss/variables.scss";
+
 .header {
   width: 100%;
   margin-bottom: 60px;
   background: $secondary-color;
   padding: 16px 0;
 }
-</style> 
+</style>

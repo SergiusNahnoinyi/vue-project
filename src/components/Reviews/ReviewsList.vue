@@ -16,11 +16,11 @@
       {{ buttonText }}
     </button>
   </section>
-</template> 
+</template>
 
 <script>
 import ReviewsItem from "./ReviewsItem.vue";
-import StarRating from "./StarRating.vue";
+import { StarRating } from "../Common";
 
 export default {
   name: "ReviewsList",
@@ -98,4 +98,4 @@ export default {
     cursor: pointer;
   }
 }
-</style> 
+</style>

@@ -41,7 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables.scss";
+@import "../../scss/variables.scss";
+
 .custom-select {
   height: 40px;
   max-width: 280px;

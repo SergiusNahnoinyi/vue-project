@@ -14,10 +14,10 @@
 <script>
 import { getAppartmentById } from "../services/appartmentsService";
 
-import Container from "../components/Container.vue";
-import AppartmentsInfo from "../components/AppartmentsInfo.vue";
-import AppartmentsOwner from "../components/AppartmentsOwner.vue";
-import ReviewsList from "../components/ReviewsList.vue";
+import { Container } from "../components/Common";
+import { AppartmentsInfo } from "../components/Appartments";
+import { AppartmentsOwner } from "../components/Appartments";
+import { ReviewsList } from "../components/Reviews";
 
 export default {
   name: "AppartmentsPage",
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .appartments-page {
   display: flex;
   @media (max-width: 767px) {
@@ -68,4 +68,4 @@ export default {
     margin-bottom: 20px;
   }
 }
-</style> 
+</style>

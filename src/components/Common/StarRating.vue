@@ -60,11 +60,11 @@ export default {
   margin: 0 3px;
   flex-shrink: 0;
   &--colored {
-    background: url("../assets/star-yellow.svg") center no-repeat;
+    background: url("../../assets/star-yellow.svg") center no-repeat;
   }
 
   &--outlined {
-    background: url("../assets/star-outlined.svg") center no-repeat;
+    background: url("../../assets/star-outlined.svg") center no-repeat;
   }
 }
 </style>

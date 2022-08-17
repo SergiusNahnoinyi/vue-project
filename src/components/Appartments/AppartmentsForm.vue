@@ -1,20 +1,26 @@
 <template>
   <form class="form" @submit.prevent="handleSubmit">
     <CustomSelect :items="cities" v-model:city="city" class="form__select" />
-    <CustomInput type="number" v-model:price="price" placeholder="Price from" class="form__input"/>
-    <SubmitButton type="submit" class="form__submit">Submit</SubmitButton>
+    <CustomInput
+      type="number"
+      v-model:price="price"
+      placeholder="Price from"
+      class="form__input"
+    />
+    <Button type="submit" class="form__submit">Submit</Button>
   </form>
 </template>
 
 <script>
-import CustomSelect from "./CustomSelect";
-import CustomInput from "./CustomInput";
-import SubmitButton from "./Button";
+import { CustomSelect } from "../Common";
+import { CustomInput } from "../Common";
+import { Button } from "../Common";
+
 export default {
   components: {
     CustomSelect,
     CustomInput,
-    SubmitButton,
+    Button,
   },
   data() {
     return {
@@ -62,10 +68,10 @@ export default {
     margin: 0 0 30px 0;
   }
   &__submit {
-  margin-left: 0;
+    margin-left: 0;
   }
 
-  @media (min-width: 660px) {  
+  @media (min-width: 660px) {
     flex-direction: row;
     &__select {
       margin: 0 30px 0 0;

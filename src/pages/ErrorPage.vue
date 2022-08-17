@@ -9,6 +9,7 @@ export default {
   name: 'ErrorPage',
 };
 </script >
+
 <style lang='scss' scoped>
 .error {
   &__title {

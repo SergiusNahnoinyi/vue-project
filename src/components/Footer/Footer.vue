@@ -9,7 +9,8 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/variables.scss';
+@import '../../scss/variables.scss';
+
 .footer {
   width: 100%;
   position: fixed;

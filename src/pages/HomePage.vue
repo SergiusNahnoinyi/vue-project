@@ -21,10 +21,10 @@
 <script>
 import { getAppartmentsList } from "../services/appartmentsService";
 
-import Container from "../components/Container";
-import AppartmentsForm from "../components/AppartmentsForm";
-import AppartmentsList from "../components/AppartmentsList";
-import AppartmentsItem from "../components/AppartmentsItem";
+import { Container } from "../components/Common";
+import { AppartmentsForm } from "../components/Appartments";
+import { AppartmentsList } from "../components/Appartments";
+import { AppartmentsItem } from "../components/Appartments";
 
 export default {
   name: "App",
@@ -78,5 +78,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
