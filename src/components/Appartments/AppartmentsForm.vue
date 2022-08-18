@@ -2,16 +2,19 @@
   <form class="form" @submit.prevent="handleSubmit">
     <CustomSelect :items="cities" v-model:city="city" class="form__select" />
     <CustomInput
-      type="number"
-      v-model:price="price"
+      v-model:value="price"
       placeholder="Price from"
       class="form__input"
+      error-message="Should not be empty"
+      :rules="rules"
     />
     <Button type="submit" class="form__submit">Submit</Button>
   </form>
 </template>
 
 <script>
+import { isRequired, charLimit } from "../../utils/validationRules";
+
 import { CustomSelect } from "../Common";
 import { CustomInput } from "../Common";
 import { Button } from "../Common";
@@ -29,6 +32,9 @@ export default {
     };
   },
   computed: {
+    rules() {
+      return [isRequired, charLimit(10)];
+    },
     cities() {
       return [
         { value: "", label: "City", selected: true },
@@ -64,11 +70,8 @@ export default {
   &__select {
     margin: 0 0 30px 0;
   }
-  &__input {
-    margin: 0 0 30px 0;
-  }
   &__submit {
-    margin-left: 0;
+    margin: 30px 0 0 0;
   }
 
   @media (min-width: 660px) {
@@ -76,11 +79,8 @@ export default {
     &__select {
       margin: 0 30px 0 0;
     }
-    &__input {
-      margin: 0 30px 0 0;
-    }
     &__submit {
-      margin-left: auto;
+      margin: 0 0 0 30px;
     }
   }
 }
