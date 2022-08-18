@@ -17,6 +17,6 @@ git add -A
 git commit -m 'Deploy the app on gh-pages'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:SergiusNahnoinyi/vue-project.git main:gh-pages
+git push -f git@github.com:SergiusNahnoinyi/vue-project.git master:gh-pages
 
 cd -
