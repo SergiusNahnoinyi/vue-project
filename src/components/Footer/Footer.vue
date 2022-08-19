@@ -3,13 +3,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'FooterComponent'
-  }
+export default {
+  name: "FooterComponent",
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../scss/variables.scss';
+@import "../../scss/variables.scss";
 
 .footer {
   width: 100%;
@@ -18,4 +18,4 @@
   background: $secondary-color;
   height: 30px;
 }
-</style> 
+</style>

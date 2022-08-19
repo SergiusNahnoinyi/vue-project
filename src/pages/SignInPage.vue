@@ -1,25 +1,29 @@
 <template>
-  <Container>
-    <h1 class="signin">Sign in to your account</h1>
-    <Form @submit.prevent="handleSubmit">
+  <AuthSection class="signin">
+    <Form class="signin__form" @submit.prevent="handleSubmit">
+      <h1 class="signin__title">Sign in to your account</h1>
       <CustomInput
+        placeholder="Email"
         v-model:value="formData.email"
         name="email"
         :rules="emailRules"
       />
       <CustomInput
+        placeholder="Password"
         v-model:value="formData.password"
+        v-bind:style="{ 'margin-top': '25px' }"
         name="password"
         :rules="passwordRules"
       />
-      <Button type="submit">Submit</Button>
+      <Button class="signin__button" type="submit">Sign in</Button>
     </Form>
-  </Container>
+  </AuthSection>
 </template>
 
 <script>
-import { Container, Form, CustomInput, Button } from "../components/Common";
-
+import { Form, CustomInput, Button } from "../components/Common";
+import AuthSection from "../components/Auth";
+import { loginUser } from "../services/appartmentsService";
 import {
   emailValidation,
   passwordValidation,
@@ -29,7 +33,7 @@ import {
 export default {
   name: "SignInPage",
   components: {
-    Container,
+    AuthSection,
     Form,
     CustomInput,
     Button,
@@ -60,11 +64,36 @@ export default {
   },
   emits: ["submit"],
   methods: {
-    handleSubmit() {
-      this.$emit("submit", console.log(this.formData));
+    async handleSubmit() {
+      try {
+        const { data } = await loginUser(this.formData);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.signin {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+  }
+  &__title {
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__button {
+    margin-top: 40px;
+  }
+}
+</style>

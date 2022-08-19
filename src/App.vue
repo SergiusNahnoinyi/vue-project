@@ -1,14 +1,14 @@
 <template>
-    <Header />
-    <main class="main">
-      <router-view></router-view>
-    </main>
-    <Footer />
+  <Header />
+  <main class="main">
+    <router-view></router-view>
+  </main>
+  <Footer />
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main {
-  margin-bottom: 100px;
-}
+// .main {
+// margin-bottom: 100px;
+// }
 </style>

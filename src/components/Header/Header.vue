@@ -25,7 +25,7 @@ export default {
 
 .header {
   width: 100%;
-  margin-bottom: 60px;
+  // margin-bottom: 60px;
   background: $secondary-color;
   padding: 16px 0;
 }
