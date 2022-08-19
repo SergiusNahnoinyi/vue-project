@@ -1,20 +1,17 @@
 <template>
   <header class="header">
-    <Container>
-      <router-link to="/">
-        <Logo />
-      </router-link>
-    </Container>
+    <router-link to="/">
+      <Logo />
+    </router-link>
   </header>
 </template>
 
 <script>
-import { Container, Logo } from "../Common";
+import { Logo } from "../Common";
 
 export default {
   name: "HeaderComponent",
   components: {
-    Container,
     Logo,
   },
 };
@@ -25,8 +22,11 @@ export default {
 
 .header {
   width: 100%;
-  // margin-bottom: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px 0 20px;
+  margin: 0px auto 0px auto;
   background: $secondary-color;
-  padding: 16px 0;
 }
 </style>

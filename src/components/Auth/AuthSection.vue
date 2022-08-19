@@ -1,7 +1,7 @@
 <template>
-  <div class="auth-section">
+  <section class="auth-section">
     <slot></slot>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
   background: url("../../assets/background-image.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: calc(100vh - 93px);
+  min-height: calc(100vh - 90px);
   z-index: 1;
   &::before {
     content: "";
