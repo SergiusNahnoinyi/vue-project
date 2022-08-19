@@ -15,7 +15,9 @@
         name="password"
         :rules="passwordRules"
       />
-      <Button class="signin__button" type="submit">Sign in</Button>
+      <Button class="signin__button" type="submit" :loading="loading">
+        Sign in
+      </Button>
     </Form>
   </AuthSection>
 </template>
@@ -40,7 +42,7 @@ export default {
   },
   data() {
     return {
-      inputs: [],
+      loading: false,
       formData: {
         email: "",
         password: "",
@@ -66,10 +68,13 @@ export default {
   methods: {
     async handleSubmit() {
       try {
+        this.loading = true;
         const { data } = await loginUser(this.formData);
         console.log(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        this.loading = false;
       }
     },
   },

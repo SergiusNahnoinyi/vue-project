@@ -29,7 +29,9 @@
         name="confirmPassword"
         :rules="confirmPassword"
       />
-      <Button class="signup__button" type="submit">Sign up</Button>
+      <Button class="signup__button" type="submit" :loading="loading">
+        Sign up
+      </Button>
     </Form>
   </AuthSection>
 </template>
@@ -54,7 +56,7 @@ export default {
   },
   data() {
     return {
-      inputs: [],
+      loading: false,
       formData: {
         name: "",
         email: "",
@@ -94,10 +96,13 @@ export default {
     async handleSubmit() {
       const { name, password, email } = this.formData;
       try {
+        this.loading = true;
         const { data } = await registerUser({ name, password, email });
         console.log(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        this.loading = false;
       }
     },
   },
