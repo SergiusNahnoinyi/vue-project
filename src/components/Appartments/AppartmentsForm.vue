@@ -15,9 +15,7 @@
 <script>
 import { isRequired, charLimit } from "../../utils/validationRules";
 
-import { CustomSelect } from "../Common";
-import { CustomInput } from "../Common";
-import { Button } from "../Common";
+import { CustomSelect, CustomInput, Button } from "../Common";
 
 export default {
   components: {

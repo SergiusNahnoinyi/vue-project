@@ -22,9 +22,11 @@
 import { getAppartmentsList } from "../services/appartmentsService";
 
 import { Container } from "../components/Common";
-import { AppartmentsForm } from "../components/Appartments";
-import { AppartmentsList } from "../components/Appartments";
-import { AppartmentsItem } from "../components/Appartments";
+import {
+  AppartmentsForm,
+  AppartmentsList,
+  AppartmentsItem,
+} from "../components/Appartments";
 
 export default {
   name: "App",

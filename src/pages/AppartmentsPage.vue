@@ -15,8 +15,7 @@
 import { getAppartmentById } from "../services/appartmentsService";
 
 import { Container } from "../components/Common";
-import { AppartmentsInfo } from "../components/Appartments";
-import { AppartmentsOwner } from "../components/Appartments";
+import { AppartmentsInfo, AppartmentsOwner } from "../components/Appartments";
 import { ReviewsList } from "../components/Reviews";
 
 export default {

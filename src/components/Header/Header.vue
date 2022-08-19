@@ -9,8 +9,7 @@
 </template>
 
 <script>
-import { Container } from "../Common";
-import { Logo } from "../Common";
+import { Container, Logo } from "../Common";
 
 export default {
   name: "HeaderComponent",

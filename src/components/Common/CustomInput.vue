@@ -19,6 +19,11 @@ export default {
       error: "",
     };
   },
+  inject: {
+    form: {
+      default: null,
+    },
+  },
   inheritAttrs: false,
   props: {
     value: {
@@ -36,10 +41,17 @@ export default {
   },
   emits: ["update:value"],
   watch: {
-    value(value) {
-      this.validate(value);
-      console.log(value);
+    value() {
+      this.validate();
     },
+  },
+  mounted() {
+    if (!this.form) return;
+    this.form.registerInput(this);
+  },
+  beforeUnmount() {
+    if (!this.form) return;
+    this.form.unRegisterInput(this);
   },
   methods: {
     validate() {
@@ -50,9 +62,13 @@ export default {
         }
         return hasPassed;
       });
+      return this.isValid;
     },
     handleInput(event) {
       this.$emit("update:value", event.target.value);
+    },
+    reset() {
+      this.$emit("input", "");
     },
   },
 };
@@ -62,6 +78,7 @@ export default {
 @import "../../scss/variables.scss";
 
 .input-wrapper {
+  display: inline-flex;
   position: relative;
   max-width: 280px;
   width: 100%;
