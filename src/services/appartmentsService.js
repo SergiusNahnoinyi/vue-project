@@ -13,3 +13,7 @@ export const getAppartmentById = (id) => {
 export const loginUser = (payload) => {
   return axios.post("/users/login", payload);
 };
+
+export const registerUser = (payload) => {
+  return axios.post("/users/register", payload);
+};

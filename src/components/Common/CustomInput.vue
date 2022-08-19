@@ -68,7 +68,7 @@ export default {
       this.$emit("update:value", event.target.value);
     },
     reset() {
-      this.$emit("input", "");
+      this.$emit("update:value", "");
     },
   },
 };
