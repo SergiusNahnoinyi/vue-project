@@ -30,6 +30,7 @@ import {
   passwordValidation,
   isRequired,
 } from "../utils/validationRules";
+import { mapActions } from "vuex";
 
 export default {
   name: "LogInPage",
@@ -65,10 +66,11 @@ export default {
   },
   emits: ["submit"],
   methods: {
+    ...mapActions("auth", ["login"]),
     async handleSubmit() {
       try {
         this.loading = true;
-        await this.$store.dispatch("login", this.formData);
+        await this.login(this.formData);
         this.$router.push({ name: "HomePage" });
       } catch (error) {
         console.log(error);

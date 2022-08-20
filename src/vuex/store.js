@@ -1,36 +1,9 @@
 import { createStore } from "vuex";
-import { loginUser, registerUser } from "../services/appartmentsService";
-
-const initialState = {
-  user: null,
-  token: "",
-};
+import authModule from "./modules/auth";
 
 const store = createStore({
-  state: { ...initialState },
-  mutations: {
-    setUserData(state, userData) {
-      state.user = userData;
-    },
-    setToken(state, token) {
-      state.token = token;
-    },
-  },
-  actions: {
-    async login({ commit }, payload) {
-      const { data } = await loginUser(payload);
-      const { user, token } = data;
-
-      commit("setUserData", user);
-      commit("setToken", token);
-    },
-    async signup({ commit }, payload) {
-      const { data } = await registerUser(payload);
-      const { user, token } = data;
-
-      commit("setUserData", user);
-      commit("setToken", token);
-    },
+  modules: {
+    auth: authModule,
   },
 });
 
