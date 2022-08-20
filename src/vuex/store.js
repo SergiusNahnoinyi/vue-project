@@ -24,7 +24,7 @@ const store = createStore({
       commit("setUserData", user);
       commit("setToken", token);
     },
-    async registration({ commit }, payload) {
+    async signup({ commit }, payload) {
       const { data } = await registerUser(payload);
       const { user, token } = data;
 

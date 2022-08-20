@@ -1,7 +1,7 @@
 <template>
-  <AuthSection class="signin">
-    <Form class="signin__form" @submit.prevent="handleSubmit">
-      <h1 class="signin__title">Sign in to your account</h1>
+  <AuthSection class="login">
+    <Form class="login__form" @submit.prevent="handleSubmit">
+      <h1 class="login__title">Log in to your account</h1>
       <CustomInput
         placeholder="Email"
         v-model:value="formData.email"
@@ -15,8 +15,8 @@
         name="password"
         :rules="passwordRules"
       />
-      <Button class="signin__button" type="submit" :loading="loading">
-        Sign in
+      <Button class="login__button" type="submit" :loading="loading">
+        Log in
       </Button>
     </Form>
   </AuthSection>
@@ -25,7 +25,6 @@
 <script>
 import { Form, CustomInput, Button } from "../components/Common";
 import AuthSection from "../components/Auth";
-import { loginUser } from "../services/appartmentsService";
 import {
   emailValidation,
   passwordValidation,
@@ -33,7 +32,7 @@ import {
 } from "../utils/validationRules";
 
 export default {
-  name: "SignInPage",
+  name: "LogInPage",
   components: {
     AuthSection,
     Form,
@@ -69,8 +68,8 @@ export default {
     async handleSubmit() {
       try {
         this.loading = true;
-        const { data } = await loginUser(this.formData);
-        console.log(data);
+        await this.$store.dispatch("login", this.formData);
+        this.$router.push({ name: "HomePage" });
       } catch (error) {
         console.log(error);
       } finally {
@@ -82,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.signin {
+.login {
   &__form {
     display: flex;
     flex-direction: column;

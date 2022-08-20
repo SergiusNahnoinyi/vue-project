@@ -39,7 +39,6 @@
 <script>
 import { Form, CustomInput, Button } from "../components/Common";
 import AuthSection from "../components/Auth";
-import { registerUser } from "../services/appartmentsService";
 import {
   emailValidation,
   passwordValidation,
@@ -97,8 +96,8 @@ export default {
       const { name, password, email } = this.formData;
       try {
         this.loading = true;
-        const { data } = await registerUser({ name, password, email });
-        console.log(data);
+        await this.$store.dispatch("signup", { name, password, email });
+        this.$router.push({ name: "HomePage" });
       } catch (error) {
         console.log(error);
       } finally {
