@@ -1,8 +1,10 @@
 <template>
   <header class="header">
-    <router-link to="/">
-      <Logo />
-    </router-link>
+    <div class="header__container">
+      <router-link to="/">
+        <Logo />
+      </router-link>
+    </div>
   </header>
 </template>
 
@@ -21,12 +23,15 @@ export default {
 @import "../../scss/variables.scss";
 
 .header {
-  width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
-  padding: 0px 20px 0 20px;
-  margin: 0px auto 0px auto;
   background: $secondary-color;
+  &__container {
+    width: 100%;
+    max-width: 1150px;
+    padding: 0px 20px 0 20px;
+    margin: 0px auto 0px auto;
+  }
 }
 </style>
