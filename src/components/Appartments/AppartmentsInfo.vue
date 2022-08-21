@@ -11,16 +11,21 @@
       class="appartments-info__photo"
     />
     <p class="appartments-info__description">{{ appartment.descr }}</p>
+    <div class="appartments-info__btn">
+      <Button @click="handleAppartmentsBooking" :loading="loading">Book</Button>
+    </div>
   </article>
 </template>
 
 <script>
-import { StarRating } from '../Common';
+import { StarRating, Button } from "../Common";
+import { bookAppartment } from "../../services/appartmentsService";
 
 export default {
-  name: 'AppartmentsMain',
+  name: "AppartmentsMain",
   components: {
     StarRating,
+    Button,
   },
   props: {
     appartment: {
@@ -28,10 +33,31 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      loading: false,
+    };
+  },
+  methods: {
+    async handleAppartmentsBooking() {
+      const body = {
+        apartmentId: this.$route.params.id,
+        date: Date.now(),
+      };
+      try {
+        this.loading = true;
+        await bookAppartment(body);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        this.loading = false;
+      }
+    },
+  },
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .appartments-info {
   @media (min-width: 768px) {
     max-width: fit-content;
@@ -58,5 +84,9 @@ export default {
     font-weight: 500;
     line-height: 1.2;
   }
+  &__btn {
+    margin-top: 20px;
+    text-align: center;
+  }
 }
-</style> 
+</style>
