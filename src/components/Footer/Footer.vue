@@ -14,6 +14,7 @@ export default {
 .footer {
   width: 100%;
   position: fixed;
+  z-index: 1;
   bottom: 0;
   background: $secondary-color;
   height: 30px;

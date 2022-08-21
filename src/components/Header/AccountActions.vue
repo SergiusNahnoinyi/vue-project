@@ -26,7 +26,9 @@
         </router-link>
       </li>
       <li class="account-actions__item">
-        <button @click="logout" class="account-actions__logout">Log out</button>
+        <button @click="handleLogout" class="account-actions__logout">
+          Log out
+        </button>
       </li>
     </ul>
   </div>
@@ -51,6 +53,17 @@ export default {
     },
     toggle() {
       this.isOpen = !this.isOpen;
+    },
+    async handleLogout() {
+      try {
+        await this.logout();
+        const { requiresAuth } = this.$route.meta;
+        if (requiresAuth) {
+          this.$router.push({ name: "LogInPage" });
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
