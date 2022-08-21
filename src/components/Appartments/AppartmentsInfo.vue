@@ -51,6 +51,11 @@ export default {
         console.error(error);
       } finally {
         this.loading = false;
+        this.$notify({
+          type: "success",
+          title: "Success",
+          text: "You have successfully booked an apartment",
+        });
       }
     },
   },

@@ -63,6 +63,11 @@ export default {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        this.$notify({
+          title: "Notification",
+          text: "Well, see you later",
+        });
       }
     },
   },

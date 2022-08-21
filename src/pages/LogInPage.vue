@@ -73,7 +73,11 @@ export default {
         await this.login(this.formData);
         this.$router.push({ name: "HomePage" });
       } catch (error) {
-        console.log(error);
+        this.$notify({
+          type: "error",
+          title: "Error",
+          text: error.message,
+        });
       } finally {
         this.loading = false;
       }

@@ -101,7 +101,11 @@ export default {
         await this.signup({ name, password, email });
         this.$router.push({ name: "HomePage" });
       } catch (error) {
-        console.log(error);
+        this.$notify({
+          type: "error",
+          title: "Error",
+          text: error.message,
+        });
       } finally {
         this.loading = false;
       }

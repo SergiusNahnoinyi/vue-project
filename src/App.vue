@@ -1,6 +1,7 @@
 <template>
   <Header />
   <main class="main">
+    <notifications />
     <router-view></router-view>
   </main>
   <Footer />
