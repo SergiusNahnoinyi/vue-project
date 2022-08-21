@@ -4,7 +4,7 @@ import store from "../vuex/store";
 const SignUpPage = () => import("../pages/SignUpPage.vue");
 const LogInPage = () => import("../pages/LogInPage.vue");
 const HomePage = () => import("../pages/HomePage.vue");
-const AppartmentsPage = () => import("../pages/AppartmentsPage.vue");
+const ApartmentsPage = () => import("../pages/ApartmentsPage.vue");
 const MyOrdersPage = () => import("../pages/MyOrdersPage.vue");
 const ErrorPage = () => import("../pages/ErrorPage.vue");
 
@@ -34,9 +34,9 @@ const routes = [
     },
   },
   {
-    path: "/appartments/:id",
-    component: AppartmentsPage,
-    name: "AppartmentsPage",
+    path: "/apartments/:id",
+    component: ApartmentsPage,
+    name: "ApartmentsPage",
     meta: {
       requiresAuth: true,
     },

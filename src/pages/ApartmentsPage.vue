@@ -1,46 +1,46 @@
 <template>
-  <Container v-if="appartment" class="appartments-page">
-    <AppartmentsInfo :appartment="appartment" />
-    <div class="appartments-page__reviews">
-      <AppartmentsOwner
-        :owner="appartment.owner"
-        class="appartments-page__owner"
+  <Container v-if="apartment" class="apartments-page">
+    <ApartmentsInfo :apartment="apartment" />
+    <div class="apartments-page__reviews">
+      <ApartmentsOwner
+        :owner="apartment.owner"
+        class="apartments-page__owner"
       />
-      <ReviewsList :reviews="reviews" :appartment="appartment" />
+      <ReviewsList :reviews="reviews" :apartment="apartment" />
     </div>
   </Container>
 </template>
 
 <script>
-import { getAppartmentById } from "../services/appartmentsService";
+import { getApartmentById } from "../services/apartmentsService";
 
 import { Container } from "../components/Common";
-import { AppartmentsInfo, AppartmentsOwner } from "../components/Appartments";
+import { ApartmentsInfo, ApartmentsOwner } from "../components/Apartments";
 import { ReviewsList } from "../components/Reviews";
 
 export default {
-  name: "AppartmentsPage",
+  name: "ApartmentsPage",
   components: {
     Container,
-    AppartmentsInfo,
-    AppartmentsOwner,
+    ApartmentsInfo,
+    ApartmentsOwner,
     ReviewsList,
   },
   data() {
     return {
-      appartment: null,
+      apartment: null,
     };
   },
   computed: {
     reviews() {
-      return this.appartment.reviews;
+      return this.apartment.reviews;
     },
   },
   async created() {
     try {
       const { id } = this.$route.params;
-      const { data } = await getAppartmentById(id);
-      this.appartment = data;
+      const { data } = await getApartmentById(id);
+      this.apartment = data;
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.appartments-page {
+.apartments-page {
   display: flex;
   @media (max-width: 767px) {
     flex-wrap: wrap;

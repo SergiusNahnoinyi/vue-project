@@ -10,7 +10,7 @@
 <script>
 import { Container } from "../components/Common";
 import OrdersList from "../components/Orders";
-import { getOrders } from "../services/appartmentsService";
+import { getOrders } from "../services/apartmentsService";
 
 export default {
   name: "MyOrdersPage",

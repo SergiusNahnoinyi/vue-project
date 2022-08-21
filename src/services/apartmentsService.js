@@ -28,15 +28,15 @@ export const logoutUser = () => {
   return axiosInstance.post("/users/logout");
 };
 
-export const getAppartmentsList = () => {
+export const getApartmentsList = () => {
   return axiosInstance.get("/apartments");
 };
 
-export const getAppartmentById = (id) => {
+export const getApartmentById = (id) => {
   return axiosInstance.get(`/apartments/${id}`);
 };
 
-export const bookAppartment = (payload) => {
+export const bookApartment = (payload) => {
   return axiosInstance.post("/orders", payload);
 };
 

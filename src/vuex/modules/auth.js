@@ -2,7 +2,7 @@ import {
   loginUser,
   registerUser,
   logoutUser,
-} from "../../services/appartmentsService";
+} from "../../services/apartmentsService";
 
 const initialState = {
   user: null,

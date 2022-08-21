@@ -1,21 +1,21 @@
 <template>
-  <div class="appartments-item">
-    <div class="appartments-item__inner">
-      <img :src="imgSrc" alt="" class="appartments-item__photo" />
-      <div class="appartments-item__content">
-        <p class="appartments-item__description">
+  <div class="apartments-item">
+    <div class="apartments-item__inner">
+      <img :src="imgSrc" alt="" class="apartments-item__photo" />
+      <div class="apartments-item__content">
+        <p class="apartments-item__description">
           {{ descr }}
         </p>
-        <div class="appartments-item__rating">
+        <div class="apartments-item__rating">
           <StarRating :rating="rating" />
         </div>
-        <div class="appartments-item__price">UAH {{ price }}</div>
+        <div class="apartments-item__price">UAH {{ price }}</div>
         <router-link
           :to="{
-            name: 'AppartmentsPage',
+            name: 'ApartmentsPage',
             params: { id },
           }"
-          class="appartments-item__link"
+          class="apartments-item__link"
         ></router-link>
       </div>
     </div>
@@ -25,7 +25,7 @@
 <script>
 import { StarRating } from "../Common";
 export default {
-  name: "AppartmentsItem",
+  name: "ApartmentsItem",
   components: {
     StarRating,
   },
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.appartments-item {
+.apartments-item {
   position: relative;
   &__inner {
     position: relative;

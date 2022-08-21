@@ -33,7 +33,7 @@ export default {
       type: Array,
       required: true,
     },
-    appartment: {
+    apartment: {
       type: Object,
       required: true,
     },
@@ -48,7 +48,7 @@ export default {
       return this.reviews.length;
     },
     totalRating() {
-      return this.appartment.rating;
+      return this.apartment.rating;
     },
     currentReviews() {
       return this.reviews.slice(0, this.reviewsLimit);

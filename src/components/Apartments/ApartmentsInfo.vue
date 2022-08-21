@@ -1,34 +1,34 @@
 <template>
-  <article class="appartments-info">
-    <div class="appartments-info__heading">
-      <h1 class="appartments-info__title">{{ appartment.title }}</h1>
-      <StarRating :rating="appartment.rating" />
+  <article class="apartments-info">
+    <div class="apartments-info__heading">
+      <h1 class="apartments-info__title">{{ apartment.title }}</h1>
+      <StarRating :rating="apartment.rating" />
     </div>
     <img
-      :src="appartment.imgUrl"
-      :alt="appartment.title"
-      :title="appartment.title"
-      class="appartments-info__photo"
+      :src="apartment.imgUrl"
+      :alt="apartment.title"
+      :title="apartment.title"
+      class="apartments-info__photo"
     />
-    <p class="appartments-info__description">{{ appartment.descr }}</p>
-    <div class="appartments-info__btn">
-      <Button @click="handleAppartmentsBooking" :loading="loading">Book</Button>
+    <p class="apartments-info__description">{{ apartment.descr }}</p>
+    <div class="apartments-info__btn">
+      <Button @click="handleApartmentsBooking" :loading="loading">Book</Button>
     </div>
   </article>
 </template>
 
 <script>
 import { StarRating, Button } from "../Common";
-import { bookAppartment } from "../../services/appartmentsService";
+import { bookApartment } from "../../services/apartmentsService";
 
 export default {
-  name: "AppartmentsMain",
+  name: "ApartmentsMain",
   components: {
     StarRating,
     Button,
   },
   props: {
-    appartment: {
+    apartment: {
       type: Object,
       required: true,
     },
@@ -39,14 +39,14 @@ export default {
     };
   },
   methods: {
-    async handleAppartmentsBooking() {
+    async handleApartmentsBooking() {
       const body = {
         apartmentId: this.$route.params.id,
         date: Date.now(),
       };
       try {
         this.loading = true;
-        await bookAppartment(body);
+        await bookApartment(body);
       } catch (error) {
         console.error(error);
       } finally {
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.appartments-info {
+.apartments-info {
   @media (min-width: 768px) {
     max-width: fit-content;
     margin-right: 20px;
