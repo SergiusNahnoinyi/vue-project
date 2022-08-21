@@ -39,3 +39,7 @@ export const getAppartmentById = (id) => {
 export const bookAppartment = (payload) => {
   return axiosInstance.post("/orders", payload);
 };
+
+export const getOrders = () => {
+  return axiosInstance.get("/orders");
+};
