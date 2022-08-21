@@ -1,13 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-import SignUpPage from "../pages/SignUpPage.vue";
-import LogInPage from "../pages/LogInPage.vue";
-import HomePage from "../pages/HomePage.vue";
-import AppartmentsPage from "../pages/AppartmentsPage.vue";
-import MyOrdersPage from "../pages/MyOrdersPage.vue";
-import ErrorPage from "../pages/ErrorPage.vue";
-
 import store from "../vuex/store";
+
+const SignUpPage = () => import("../pages/SignUpPage.vue");
+const LogInPage = () => import("../pages/LogInPage.vue");
+const HomePage = () => import("../pages/HomePage.vue");
+const AppartmentsPage = () => import("../pages/AppartmentsPage.vue");
+const MyOrdersPage = () => import("../pages/MyOrdersPage.vue");
+const ErrorPage = () => import("../pages/ErrorPage.vue");
 
 const routes = [
   {

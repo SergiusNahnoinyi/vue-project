@@ -11,7 +11,7 @@
         <p class="orders-item__location">{{ order.location.city }}</p>
       </div>
       <div class="orders-item__cost">
-        <span class="orders-item__price">USD {{ order.price }}</span> per month
+        <span class="orders-item__price">UAH {{ order.price }}</span> per day
       </div>
     </div>
   </div>
