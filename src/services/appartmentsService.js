@@ -1,19 +1,37 @@
 import axios from "axios";
+import store from "../vuex/store";
 
-axios.defaults.baseURL = "https://apt-booking-api.herokuapp.com/";
+const axiosInstance = axios.create({
+  baseURL: "https://apt-booking-api.herokuapp.com/",
+});
 
-export const getAppartmentsList = () => {
-  return axios.get("/apartments");
-};
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const { token } = store.state.auth;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-export const getAppartmentById = (id) => {
-  return axios.get(`/apartments/${id}`);
+export const registerUser = (payload) => {
+  return axiosInstance.post("/users/register", payload);
 };
 
 export const loginUser = (payload) => {
-  return axios.post("/users/login", payload);
+  return axiosInstance.post("/users/login", payload);
 };
 
-export const registerUser = (payload) => {
-  return axios.post("/users/register", payload);
+export const logoutUser = () => {
+  return axiosInstance.post("/users/logout");
+};
+
+export const getAppartmentsList = () => {
+  return axiosInstance.get("/apartments");
+};
+
+export const getAppartmentById = (id) => {
+  return axiosInstance.get(`/apartments/${id}`);
 };

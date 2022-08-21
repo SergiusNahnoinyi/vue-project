@@ -1,4 +1,8 @@
-import { loginUser, registerUser } from "../../services/appartmentsService";
+import {
+  loginUser,
+  registerUser,
+  logoutUser,
+} from "../../services/appartmentsService";
 
 const initialState = {
   user: null,
@@ -20,8 +24,18 @@ export default {
     setToken(state, token) {
       state.token = token;
     },
+    clearUserData(state) {
+      Object.assign(state, { ...initialState });
+    },
   },
   actions: {
+    async signup({ commit }, payload) {
+      const { data } = await registerUser(payload);
+      const { user, token } = data;
+
+      commit("setUserData", user);
+      commit("setToken", token);
+    },
     async login({ commit }, payload) {
       const { data } = await loginUser(payload);
       const { user, token } = data;
@@ -29,12 +43,10 @@ export default {
       commit("setUserData", user);
       commit("setToken", token);
     },
-    async signup({ commit }, payload) {
-      const { data } = await registerUser(payload);
-      const { user, token } = data;
+    async logout({ commit }) {
+      await logoutUser();
 
-      commit("setUserData", user);
-      commit("setToken", token);
+      commit("clearUserData");
     },
   },
 };
