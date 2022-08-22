@@ -82,7 +82,7 @@ export default {
   }
   &__photo {
     display: block;
-    max-width: 100%;
+    width: 100%;
     margin-bottom: 30px;
   }
   &__description {

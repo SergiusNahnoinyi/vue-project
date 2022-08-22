@@ -58,9 +58,9 @@ export default {
   &__reviews {
     display: flex;
     flex-direction: column;
-    margin-top: 44px;
     @media (max-width: 767px) {
       width: 100%;
+      margin-top: 20px;
     }
   }
   &__owner {

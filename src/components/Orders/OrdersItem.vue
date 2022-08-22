@@ -1,10 +1,6 @@
 <template>
   <div class="orders-item">
-    <img
-      class="orders-item__photo"
-      :src="order.imgUrl"
-      alt="Appartment's photo"
-    />
+    <img class="orders-item__photo" :src="order.imgUrl" alt="Apartment photo" />
     <div class="orders-item__details">
       <div class="orders-item__text">
         <h2 class="orders-item__title">{{ order.title }}</h2>
@@ -41,7 +37,7 @@ export default {
   &__photo {
     display: block;
     width: 45%;
-    height: 190px;
+    height: auto;
     object-fit: cover;
   }
   &__details {
