@@ -1,6 +1,6 @@
 <template>
   <AuthSection class="signup">
-    <Form class="signup__form" @submit.prevent="handleSubmit">
+    <Form ref="form" class="signup__form" @submit.prevent="handleSubmit">
       <h1 class="signup__title">Sign up into your account</h1>
       <CustomInput
         placeholder="Name"
@@ -96,18 +96,21 @@ export default {
     ...mapActions("auth", ["signup"]),
     async handleSubmit() {
       const { name, password, email } = this.formData;
-      try {
-        this.loading = true;
-        await this.signup({ name, password, email });
-        this.$router.push({ name: "HomePage" });
-      } catch (error) {
-        this.$notify({
-          type: "error",
-          title: "Error",
-          text: error.message,
-        });
-      } finally {
-        this.loading = false;
+      const isFormValid = this.$refs.form.validate();
+      if (isFormValid) {
+        try {
+          this.loading = true;
+          await this.signup({ name, password, email });
+          this.$router.push({ name: "HomePage" });
+        } catch (error) {
+          this.$notify({
+            type: "error",
+            title: "Error",
+            text: error.message,
+          });
+        } finally {
+          this.loading = false;
+        }
       }
     },
   },

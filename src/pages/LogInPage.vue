@@ -1,6 +1,6 @@
 <template>
   <AuthSection class="login">
-    <Form class="login__form" @submit.prevent="handleSubmit">
+    <Form ref="form" class="login__form" @submit.prevent="handleSubmit">
       <h1 class="login__title">Log in to your account</h1>
       <CustomInput
         placeholder="Email"
@@ -68,18 +68,21 @@ export default {
   methods: {
     ...mapActions("auth", ["login"]),
     async handleSubmit() {
-      try {
-        this.loading = true;
-        await this.login(this.formData);
-        this.$router.push({ name: "HomePage" });
-      } catch (error) {
-        this.$notify({
-          type: "error",
-          title: "Error",
-          text: error.message,
-        });
-      } finally {
-        this.loading = false;
+      const isFormValid = this.$refs.form.validate();
+      if (isFormValid) {
+        try {
+          this.loading = true;
+          await this.login(this.formData);
+          this.$router.push({ name: "HomePage" });
+        } catch (error) {
+          this.$notify({
+            type: "error",
+            title: "Error",
+            text: error.message,
+          });
+        } finally {
+          this.loading = false;
+        }
       }
     },
   },
