@@ -1,20 +1,23 @@
 <template>
-  <section class="error">
-    <h1 class="error__title">Error 404: Page Not Found</h1>
-  </section>
+  <Container>
+    <h1 class="title">Error 404: Page Not Found</h1>
+  </Container>
 </template>
 
 <script>
-export default {
-  name: 'ErrorPage',
-};
-</script >
+import { Container } from "../components/Common";
 
-<style lang='scss' scoped>
-.error {
-  &__title {
-    font-size: 60px;
-    text-align: center;
-  }
+export default {
+  name: "ErrorPage",
+  components: {
+    Container,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.title {
+  font-size: 60px;
+  text-align: center;
 }
-</style> 
+</style>
