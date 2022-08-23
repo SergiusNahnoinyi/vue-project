@@ -7,4 +7,5 @@ The above application contains user registration and authorization.
 Fill in the login form with the credential below and preview this app:
 
 Email: test@mail.com
+
 Password: test111
