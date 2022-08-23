@@ -1,24 +1,10 @@
 # vue-project
 
-## Project setup
-```
-npm install
-```
+Web-application for booking apartments written in Vue.
+This application was made using Vue 3, Vuex, Vue Router.
+The above application contains user registration and authorization.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Fill in the login form with the credential below and preview this app:
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Email: test@mail.com
+Password: test111
